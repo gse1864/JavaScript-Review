@@ -2,8 +2,12 @@ var threeItems = [1,2,3];
 //create a function named 'last' that returns the last item from 'threeItems'
 //alert the result of your function
 
-  //code here
+function last(array) {
+    var lastItem = array[array.length - 1];
+    alert(lastItem);
+}
 
+last(threeItems);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -13,7 +17,16 @@ var threeItems = [1,2,3];
 //Loop through evenArray removing all values that aren't even 
 var evenArray = [1,2,3,6,22,98,45,23,22,12];
 
-  //code here
+function removeEvens(array) {
+    for (var i = 0; i < array.length; i++){
+        if (array[i] % 2 !== 0) {
+            array.splice(i, 1);
+        }
+    }
+}
+
+removeEvens(evenArray);
+console.log(evenArray);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -26,7 +39,26 @@ var getRandomArbitrary = function() {
 }
 var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
-  //code here
+var getRandomArbitrary = function() {
+  return Math.floor(Math.random() * (30 - 0) + 0);
+};
+
+var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
+
+function randomFunction(array) {
+    var randomNumber = getRandomArbitrary();
+    alert(randomNumber);
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === randomNumber) {
+            alert("true");
+            return;
+        } 
+    } 
+    alert("false");
+}
+
+randomFunction(randomArray);
+
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -37,11 +69,11 @@ var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 var first = [1,2,3,4,5];
 var second;
 
-  //code here
+var second = first.slice(0, first.length - 1);
+second.push(6, 7);
 
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
-
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -49,10 +81,20 @@ alert(second) //[1,2,3,4,5,6,7];
 
 
 //write a function called longest that takes in our sentence variable, and returns the longest word in that sentence.
-var sentence = "Dev Mountain is the best"
+var sentence = "Dev Mountain is the best";
 
-  //code here
-
+function longest(sentence) {
+    var longestWord = "";
+    var sentenceArray = sentence.split(" ");
+    for (var i = 0; i < sentenceArray.length; i++) {
+        if (sentenceArray[i].length > longestWord.length) {
+            longestWord = sentenceArray[i];
+        }
+    }
+    return longestWord;
+}
+    
+longest(sentence);
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -62,7 +104,11 @@ var sentence = "Dev Mountain is the best"
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
-  //code here
+function capitalize(str) {
+    return str.toUpperCase();
+}
+
+capitalize(myPoem);
 
 
 
@@ -72,3 +118,16 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+
+function vowelCounter(str) {
+    var strArray = str.split("");
+    var counter = 0;
+    for (var i = 0; i < strArray.length; i++) {
+        if (strArray[i] === "a" || strArray[i] === "e" || strArray[i] === "i" || strArray[i] === "o" || strArray[i] === "u") {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+vowelCounter(theOdyssey);
